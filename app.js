@@ -119,3 +119,36 @@ var notHoisted = function () {
 }
 
 notHoisted()
+
+// JS Callbacks
+// first class citizens
+var obj = {
+  prop1: 'value',
+  prop2: function () {
+    console.log('inside obj')
+  }
+}
+obj.prop2()
+
+function timesTwo (num) {
+  return num * 2
+}
+
+timesTwo(2) // => 4
+var numArray = [0, 1, 2]
+
+numArray.forEach(function (element, index) {
+  console.log(index, element)
+})
+
+setTimeout(function () {
+  console.log("i'm a callback")
+}, 5000)
+
+function pickANumber (func) {
+  var randomNum = Math.ceil(Math.random() * 10)
+  func(randomNum)
+}
+
+pickANumber(timesTwo)
+
